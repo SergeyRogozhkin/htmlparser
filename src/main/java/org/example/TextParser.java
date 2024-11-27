@@ -30,19 +30,12 @@ public class TextParser {
         String[] words = new String[headlines.size()];
         words = allWord.split(" ");
 
-        //удаляем лишние знаки
         String[] cleanedWords = Arrays.stream(words)
                 .map(str -> str.replaceAll("\\W", ""))
                 .filter(str -> !str.isEmpty())
                 .filter(str -> str.length() > 3)
                 .map(String::toLowerCase)
                 .toArray(String[]::new);
-
-
-
-        //  for (int i = 0; i < cleanedWords.length; i++) {
-       //     System.out.println(cleanedWords[i]);
-       // }
 
         HashMap<String, Integer> map = new HashMap<>();
             for (String word : cleanedWords) {
@@ -52,14 +45,10 @@ public class TextParser {
             }
 
         System.out.println("список:");
-       // for (String key : map.keySet()) {
-       //     System.out.println(key + ": " + map.get(key));
-       // }
 
         List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
 
         list.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
-
 
         for (Map.Entry<String, Integer> entry : list) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
