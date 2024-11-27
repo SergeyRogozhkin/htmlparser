@@ -34,6 +34,7 @@ public class TextParser {
                 .map(str -> str.replaceAll("\\W", ""))
                 .filter(str -> !str.isEmpty())
                 .filter(str -> str.length() > 3)
+                .filter(str -> !str.matches(".*\\d.*") )
                 .map(String::toLowerCase)
                 .toArray(String[]::new);
 
