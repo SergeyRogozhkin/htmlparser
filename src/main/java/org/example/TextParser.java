@@ -38,7 +38,7 @@ public class TextParser {
                 .map(String::toLowerCase)
                 .toArray(String[]::new);
 
-      //  System.out.println("==================================");
+
 
         //  for (int i = 0; i < cleanedWords.length; i++) {
        //     System.out.println(cleanedWords[i]);
