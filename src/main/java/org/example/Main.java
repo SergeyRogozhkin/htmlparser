@@ -1,20 +1,18 @@
 package org.example;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
+
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.sql.SQLOutput;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-       String nameSiteToParse = "";
-       String partToParse = "";
-
-
-
-
+       String nameSiteToParse = "https://ru.stackoverflow.com/";
+        Parser parser = new Parser();
+        Service service = new Service();
+        Elements parsed = parser.parseAllWords(nameSiteToParse, "body");
+        System.out.println("Запарсили сайт, получили Elements name.");
+        System.out.println("Отсортируем и выведем по нужной логике:");
+        service.convertToHashMap(parsed);
 
     }
 }
